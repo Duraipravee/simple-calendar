@@ -2,8 +2,8 @@ let currentDate = new Date();
 
 function setDate() {
   //setdate
-  let setdate = (document.getElementById("date").innerText =currentDate.getDate());
-
+  
+  let setdate = document.getElementById("date").innerText = padZero(currentDate.getDate());
   //setday
   let day = currentDate.getDay();
   let daysInweek = [
@@ -15,10 +15,9 @@ function setDate() {
     "Saturaday",
     "Sunday",
   ];
-  for (i = 0; i <=daysInweek.length; ++i) {
+  for (i = 0; i <= daysInweek.length; ++i) {
     if (day == i) {
-      let setDay = (document.getElementById("day").innerText =
-        daysInweek[i]);
+      let setDay = (document.getElementById("day").innerText = daysInweek[i]);
     }
   }
 
@@ -39,14 +38,20 @@ function setDate() {
   ];
 
   let getMonth = currentDate.getMonth() + 1;
-  for(i=0;i<=months.length;++i){
-    if(getMonth==i){
-      let setMonth = document.getElementById('month').innerText = months[i-1]
+  for (i = 0; i <= months.length; ++i) {
+    if (getMonth == i) {
+      let setMonth = (document.getElementById("month").innerText =
+        months[i - 1]);
     }
   }
 
-  //setYear 
-  let setYear = document.getElementById('year').innerText = currentDate.getFullYear();
-  console.log(setYear)
+  //setYear
+  let setYear = (document.getElementById("year").innerText =
+    currentDate.getFullYear());
+  console.log(setYear);
+}
+
+function padZero(num) {
+  return (num = num < 10 ? `0${num}` : num);
 }
 setDate();
